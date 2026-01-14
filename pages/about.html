@@ -1,33 +1,47 @@
-<!doctype html>
-<html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Über uns – Demo</title>
-  <link rel="stylesheet" href="/assets/styles.css" />
-  <script defer src="/assets/main.js"></script>
-</head>
-<body>
-  <div id="site-header" data-include="/partials/header.html"></div>
+    <!doctype html>
+    <html lang="de">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Über uns – Demo</title>
+      <script>
+  // Setzt automatisch den richtigen Base-Pfad:
+  // - auf GitHub Pages (USER.github.io/REPO/...) -> "/REPO/"
+  // - lokal/normal -> "/"
+  (function () {
+    try {
+      var isGh = /github\.io$/i.test(location.hostname);
+      var seg = location.pathname.split("/").filter(Boolean);
+      var base = (isGh && seg.length) ? ("/" + seg[0] + "/") : "/";
+      document.write('<base href="' + base + '">');
+    } catch (e) {
+      document.write('<base href="/">');
+    }
+  })();
+</script>
+      <link rel="stylesheet" href="assets/styles.css" />
+      <script defer src="assets/main.js"></script>
+    </head>
+    <body>
+      <div id="site-header" data-include="partials/header.html"></div>
 
-  <main class="container">
-    <h1>Über uns</h1>
-    <p>
-      Diese Seite liegt in einem Unterordner (<code>/pages/about.html</code>).
-      Weil wir <strong>root-relative Pfade</strong> nutzen (z. B. <code>/assets/…</code>),
-      bleibt alles stabil und du musst nicht mit <code>../</code> jonglieren.
-    </p>
+      <main class="container">
+        <h1>Über uns</h1>
+        <p>
+          Diese Seite liegt in einem Unterordner (<code>pages/about.html</code>),
+          aber durch das gesetzte <code>&lt;base&gt;</code> funktionieren die Pfade trotzdem.
+        </p>
 
-    <div class="card">
-      <h2>Warum das hilft</h2>
-      <ul>
-        <li>Header/Footer nur 1× pflegen</li>
-        <li>Menü ist überall gleich</li>
-        <li>Logo-Änderung wirkt sofort global</li>
-      </ul>
-    </div>
-  </main>
+        <div class="card">
+          <h2>Warum das hilft</h2>
+          <ul>
+            <li>Header/Footer nur 1× pflegen</li>
+            <li>Menü ist überall gleich</li>
+            <li>Logo-Änderung wirkt sofort global</li>
+          </ul>
+        </div>
+      </main>
 
-  <div id="site-footer" data-include="/partials/footer.html"></div>
-</body>
-</html>
+      <div id="site-footer" data-include="partials/footer.html"></div>
+    </body>
+    </html>
