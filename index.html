@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demo – JS Includes</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <script defer src="/assets/main.js"></script>
+</head>
+<body>
+  <div id="site-header" data-include="/partials/header.html"></div>
+
+  <main class="container">
+    <h1>Startseite</h1>
+    <p>
+      Das ist ein kleines Demo-Projekt: <strong>Header</strong> und <strong>Footer</strong> werden per
+      JavaScript aus <code>/partials/</code> geladen. Dadurch änderst du Menü/Logo nur noch <em>einmal</em>.
+    </p>
+
+    <div class="card">
+      <h2>Teste es</h2>
+      <ol>
+        <li>Öffne diese Seite im Browser.</li>
+        <li>Klicke auf „Über uns“.</li>
+        <li>Ändere dann in <code>/partials/header.html</code> z. B. den Logo-Text oder einen Menüpunkt.</li>
+        <li>Reload – Änderung ist auf allen Seiten sichtbar.</li>
+      </ol>
+    </div>
+  </main>
+
+  <div id="site-footer" data-include="/partials/footer.html"></div>
+</body>
+</html>
